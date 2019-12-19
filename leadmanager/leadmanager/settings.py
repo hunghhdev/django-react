@@ -25,7 +25,7 @@ SECRET_KEY = '@1bsivv(9t2g#85+4!9ma6aqh!+t%l3*zzsuf1mshwy1s5&@hs'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.1.154', '192.168.1.196', '127.0.0.1']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -39,8 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'leads',
     'rest_framework',
-    'frontend'
+    'frontend',
+    'knox'
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication', )
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
